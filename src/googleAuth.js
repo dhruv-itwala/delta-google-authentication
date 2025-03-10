@@ -68,15 +68,25 @@ const googleAuth = {
       "/auth/google/callback",
       passport.authenticate("google", { failureRedirect: "/", session: false }),
       async (req, res) => {
-        const user = req.user;
-        if (!user) {
+        if (!req.user) {
           return res.status(401).json({ message: "Authentication failed" });
         }
 
+        // Convert user to a plain object before signing JWT
+        const user = {
+          googleId: req.user.googleId,
+          name: req.user.name,
+          email: req.user.email,
+          profilePic: req.user.profilePic,
+        };
+
+        // Generate JWT token
         const token = jwt.sign(
           user,
           options.jwtSecret || process.env.JWT_SECRET,
-          { expiresIn: "1h" }
+          {
+            expiresIn: "1h",
+          }
         );
 
         res.json({ token, user });
