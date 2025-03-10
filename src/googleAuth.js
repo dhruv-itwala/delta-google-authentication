@@ -89,7 +89,12 @@ const googleAuth = {
           }
         );
 
-        res.redirect(`http://localhost:3000/dashboard?token=${token}`);
+        // Use the custom redirect URL passed in options, or fall back to default
+        const redirectURL =
+          options.redirectURL || "http://localhost:5000/dashboard";
+
+        // Redirect to the specified URL with the token as a query parameter
+        res.redirect(`${redirectURL}?token=${token}`);
       }
     );
   },
