@@ -37,6 +37,7 @@ googleAuth.init(app, {
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
   callbackURL: process.env.GOOGLE_CALLBACK_URL,
   jwtSecret: process.env.JWT_SECRET,
+  redirectURL: process.env.FRONTEND_DASHBOARD_URL,
   findOrCreateUser, // Passing custom DB function
 });
 
