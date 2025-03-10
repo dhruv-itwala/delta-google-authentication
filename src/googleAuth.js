@@ -89,7 +89,7 @@ const googleAuth = {
           }
         );
 
-        res.json({ token, user });
+        res.redirect(`http://localhost:3000/dashboard?token=${token}`);
       }
     );
   },
