@@ -57,13 +57,16 @@ const googleAuth = {
     // Google Auth Route
     app.get(
       "/auth/google",
-      passport.authenticate("google", { scope: ["profile", "email"] })
+      passport.authenticate("google", {
+        scope: ["profile", "email"],
+        session: false,
+      })
     );
 
     // Google Auth Callback Route
     app.get(
       "/auth/google/callback",
-      passport.authenticate("google", { failureRedirect: "/" }),
+      passport.authenticate("google", { failureRedirect: "/", session: false }),
       async (req, res) => {
         const user = req.user;
         if (!user) {
