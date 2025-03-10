@@ -1,0 +1,25 @@
+{
+  "name": "delta-google-authentication",
+  "version": "1.0.0",
+  "description": "Google Sign-In authentication package for Express.js",
+  "main": "src/index.js",
+  "type": "module",
+  "keywords": [
+    "google-authentication",
+    "oauth2",
+    "jwt",
+    "express",
+    "passport",
+    "google-login"
+  ],
+  "author": "DHRUV ITWALA",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "jsonwebtoken": "^9.0.0",
+    "passport": "^0.6.0",
+    "passport-google-oauth20": "^2.0.0"
+  }
+}
